@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djt.mapper.EmployeeMapper">
+    <update id="updateByid">
+     update  t_emp set emp_name =#{employee.empName},age =#{employee.age},
+         sex =#{employee.sex},email =#{employee.email} where emp_id = #{employee.empId}
+    </update>
+    <select id="getEmployeeList" resultType="Employee">
+        select * from t_emp
+    </select>
+
+    <select id="findbyId" resultType="com.djt.domain.Employee">
+            select * from t_emp where emp_id = #{id}
+    </select>
+
+    <delete id="deleteEmployeeByid" >
+        delete from t_emp where emp_id = #{id}
+    </delete>
+
+<!--    <select id="pageEmployee" resultType="employee">-->
+<!--        select * from t_emp-->
+<!--limit -->
+<!--    </select>-->
+</mapper>
